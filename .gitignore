@@ -1,0 +1,19 @@
+# Ignore everything by default
+*
+
+# Allow traversing directories so whitelist rules work
+!*/
+
+# Keep this file tracked
+!.gitignore
+
+# Keep notebooks tracked
+!*.ipynb
+
+# Keep only selected Python scripts tracked
+!generateMaps.py
+!histograms.py
+!train_phase3_baseline.py
+
+# Optional: if you want to keep another .py script tracked,
+# add a new whitelist line like: !my_script.py
