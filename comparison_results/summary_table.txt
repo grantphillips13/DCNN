@@ -1,0 +1,50 @@
+==========================================================================================
+DCNN GLIOMA PARAMETER PREDICTION — MODEL COMPARISON SUMMARY
+==========================================================================================
+
+Model                                        Data  Epochs  BestEp  BestValMSE    Dw MAE   rho MAE
+------------------------------------------------------------------------------------------
+Base CNN (50 samp)                             50      80       —      0.3689    0.6378    0.0317
+Cached CNN (50 samp)                           50      80       —      0.2342    0.4631    0.0270
+Physics+log(Dw) (50 samp)                      50       0       —           —    0.2459    0.0226
+Segm-only (50 samp)                            50     300     286      0.1349    0.5436    0.0529
+Physics+log(Dw) (250 samp)                    250     300     226      0.1393    0.4419    0.0850
+Segm-only (250 samp)                          250     300     210      0.2773    0.6909    0.0788
+PNS-only (250 samp)                           250     300     216      0.1107    0.4704    0.0910
+
+==========================================================================================
+FULL TEST METRICS
+==========================================================================================
+
+Model                                        Data  Param          MAE         RMSE
+------------------------------------------------------------------------------------------
+Base CNN (50 samp)                             50     Dw     0.637806     0.717430
+Base CNN (50 samp)                             50    rho     0.031710     0.037169
+
+Cached CNN (50 samp)                           50     Dw     0.463118     0.495381
+Cached CNN (50 samp)                           50    rho     0.026970     0.032881
+
+Physics+log(Dw) (50 samp)                      50     Dw     0.245907     0.259445
+Physics+log(Dw) (50 samp)                      50    rho     0.022569     0.025218
+
+Segm-only (50 samp)                            50     Dw     0.543562     0.611890
+Segm-only (50 samp)                            50    rho     0.052855     0.056799
+
+Physics+log(Dw) (250 samp)                    250     Dw     0.441873     0.575593
+Physics+log(Dw) (250 samp)                    250    rho     0.085001     0.109192
+
+Segm-only (250 samp)                          250     Dw     0.690880     0.852790
+Segm-only (250 samp)                          250    rho     0.078835     0.099134
+
+PNS-only (250 samp)                           250     Dw     0.470397     0.641793
+PNS-only (250 samp)                           250    rho     0.091043     0.121964
+
+==========================================================================================
+NOTES
+==========================================================================================
+  • Metrics in training/val curves are in normalised parameter space.
+  • Test MAE/RMSE are in original physical units: Dw [mm²/day], rho [1/day].
+  • log(Dw) transform applied in all 'cache_log' and 'pns_only' variants.
+  • Dw test values are exponentiated back to original scale after prediction.
+  • Best-val epoch marked with dotted vertical lines on val MSE plots.
+  • Hatched bars (///) = 50-sample models, solid = 250-sample models.
