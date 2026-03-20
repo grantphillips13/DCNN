@@ -1,0 +1,30 @@
+# Python environment
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Large datasets
+batch_50_random/
+synthetic_runs1T_FK_2c/
+RHUH-GBM_nii_v1/
+
+# Prediction outputs
+real_patient_predictions.csv
+
+# Training outputs
+runs/
+*.pt
+
+# Generated figures/artifacts
+*.png
+*.jpg
+*.jpeg
+*.svg
+
+# OS/editor
+.DS_Store
+Thumbs.db
